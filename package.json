@@ -1,0 +1,22 @@
+{
+  "name": "serenityai-web-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricky-boy-official/Serenity-AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricky-boy-official/Serenity-AI/issues"
+  },
+  "homepage": "https://github.com/Ricky-boy-official/Serenity-AI#readme",
+  "description":""
+}
