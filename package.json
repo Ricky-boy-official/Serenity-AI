@@ -7,6 +7,11 @@
     "build": "next build && next export",
     "start": "next start"
   },
+  "dependencies": {
+    "next": "^13.5.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ricky-boy-official/Serenity-AI.git"
@@ -18,5 +23,5 @@
     "url": "https://github.com/Ricky-boy-official/Serenity-AI/issues"
   },
   "homepage": "https://github.com/Ricky-boy-official/Serenity-AI#readme",
-  "description":""
+  "description": ""
 }
