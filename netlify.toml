@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"  # or your actual output folder
 
 [dev]
-  command = "next dev"
+  command = "next dev"
