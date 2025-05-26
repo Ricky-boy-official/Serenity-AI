@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/Lib/supabase';
 import { useRouter } from 'next/router';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import Spinner from '@/components/Spinner';
 
 export default function Home() {
   const [mood, setMood] = useState('');
@@ -48,7 +49,17 @@ export default function Home() {
     fetchHistory();
   }
 
-  if (loadingUser) return <div className="p-4">Loading user...</div>;
+  if (loadingUser) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <h1 className="text-4xl font-bold text-blue-700 mb-6">
+          Welcome to SerenityAI
+        </h1>
+        <Spinner />
+        <p className="mt-4 text-gray-600">Loading your experience...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
@@ -85,16 +96,18 @@ export default function Home() {
 
       <h2 className="text-xl mt-8 mb-2 font-semibold">Mood History</h2>
       <ResponsiveContainer width="100%" height={250}>
-        <LineChart data={history.map((entry, i) => ({
-          name: new Date(entry.created_at).toLocaleDateString(),
-          mood: entry.mood.length,
-        }))}>
+        <LineChart
+          data={history.map((entry) => ({
+            name: new Date(entry.created_at).toLocaleDateString(),
+            mood: entry.mood.length,
+          }))}
+        >
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
           <Line type="monotone" dataKey="mood" stroke="#8884d8" />
         </LineChart>
       </ResponsiveContainer>
-    </div>
-  );
+    </div>
+  );
 }
